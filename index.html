@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five Star Group LLC — Gift Certificates & Hospitality Add-Ons</title>
+  <meta name="description" content="Five Star Group LLC offers direct-to-consumer gift certificates and in-room hospitality packages for properties we manage in Ohio.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --gold: #c9a84c;
+      --gold-light: #f5edda;
+      --text: #2d2d2d;
+      --text-light: #5a5a5a;
+      --bg: #fafaf8;
+      --white: #ffffff;
+      --border: #e2ddd5;
+      --section-gap: 5rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .logo-stars {
+      color: var(--gold);
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+    }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a3d5e 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem 4.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+    }
+
+    /* ── Sections ── */
+    section { padding: var(--section-gap) 2rem; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      color: var(--text-light);
+      max-width: 650px;
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 1.25rem;
+      color: var(--text-light);
+    }
+
+    .about-details {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .about-details h3 {
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .detail-row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-label {
+      font-weight: 600;
+      color: var(--navy);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .detail-value { color: var(--text-light); }
+
+    /* ── Products ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.25rem;
+      transition: box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── How It Works ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 auto 1.25rem;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .step p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* ── Pricing ── */
+    .pricing-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.25rem;
+    }
+
+    .pricing-card h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pricing-card li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pricing-card li:last-child { border-bottom: none; }
+
+    .pricing-card li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Policies ── */
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .policy-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .policy-card h3 {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .policy-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* ── Disclaimer Banner ── */
+    .disclaimer {
+      background: var(--gold-light);
+      border: 1px solid #e3d5a8;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .disclaimer h3 {
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .disclaimer p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .contact-section .section-label { color: var(--gold); }
+    .contact-section .section-title { color: var(--white); }
+    .contact-section .section-desc { color: rgba(255,255,255,0.7); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .contact-card h3 {
+      color: var(--gold);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .contact-card a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: #111d33;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.75rem; }
+      .hero p { font-size: 1rem; }
+      .section-title { font-size: 1.5rem; }
+
+      .about-grid,
+      .products-grid,
+      .pricing-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps,
+      .policies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav { display: none; }
+      section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="logo-text">Five Star Group LLC</span>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#policies">Policies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Gift Certificates & <span>Hospitality Add-Ons</span></h1>
+    <p>Five Star Group LLC is a property management company offering direct-to-consumer gift certificates and optional in-room hospitality packages for use at properties we manage.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Who We Are</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Five Star Group LLC is a property management company that sells direct-to-consumer gift certificates and optional in-room add-on packages for use at properties we manage. Our gift certificates are redeemable only for accommodations and related services provided by our company.</p>
+          <p>We also sell property-stay enhancements such as welcome baskets, firewood bundles, candles, snack packages, celebration packages, and other hospitality add-ons delivered directly to guests at check-in or during their stay.</p>
+          <p>We do not sell third-party gift cards, open-loop prepaid products, reloadable stored-value products, or payment services for other businesses.</p>
+        </div>
+        <div class="about-details">
+          <h3>Company Details</h3>
+          <div class="detail-row">
+            <span class="detail-label">Legal Name</span>
+            <span class="detail-value">Five Star Group LLC</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Business Type</span>
+            <span class="detail-value">Property Management</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Address</span>
+            <span class="detail-value">4365 State Route 39, Millersburg, OH 44654</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Customers</span>
+            <span class="detail-value">Direct-to-consumer (individual end customers)</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Operations</span>
+            <span class="detail-value">United States</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" style="background: var(--white);">
+    <div class="container">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Products & Services</h2>
+      <p class="section-desc">First-party products sold directly to individual consumers for use at properties managed by Five Star Group LLC.</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon">&#127873;</div>
+          <h3>Digital Gift Certificates</h3>
+          <p>First-party digital gift certificates for stays at properties we manage. Sold in fixed denominations and delivered digitally by email. Redeemable only with our company for accommodations and related services at our managed properties.</p>
+          <span class="product-tag">Digital Delivery</span>
+          <span class="product-tag">Fixed Denominations</span>
+          <span class="product-tag">First-Party Only</span>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">&#127810;</div>
+          <h3>Welcome Baskets</h3>
+          <p>Curated gift baskets featuring local artisan products, fresh treats, and comforts delivered to guests upon check-in at our managed properties.</p>
+          <span class="product-tag">On-Site Delivery</span>
+          <span class="product-tag">Fixed Price</span>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">&#128293;</div>
+          <h3>Firewood Bundles</h3>
+          <p>Seasoned firewood bundles prepared and delivered on-site for guests to enjoy during their stay at properties with fireplaces or fire pits.</p>
+          <span class="product-tag">On-Site Delivery</span>
+          <span class="product-tag">Fixed Price</span>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">&#127878;</div>
+          <h3>Celebration & Snack Packages</h3>
+          <p>Candles, local snack boxes, celebration packages, and other hospitality add-ons delivered directly to guests at check-in or during their stay.</p>
+          <span class="product-tag">On-Site Delivery</span>
+          <span class="product-tag">Fixed Price</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Fulfillment Process</h2>
+      <p class="section-desc">Simple ordering and delivery for all of our products.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Order Online</h3>
+          <p>Customers browse our products and complete a standard online checkout with payment verification and fraud screening.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>We Deliver</h3>
+          <p>Gift certificates are delivered digitally by email. In-room packages and add-ons are delivered on-site to guests at our managed properties.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Enjoy the Stay</h3>
+          <p>Gift certificates are redeemed for stays and related services. Add-ons are enjoyed by guests during their property visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" style="background: var(--white);">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-desc">All products are sold at fixed prices with no hidden fees.</p>
+      <div class="pricing-content">
+        <div class="pricing-card">
+          <h3>Gift Certificates</h3>
+          <ul>
+            <li>Sold in fixed denominations</li>
+            <li>Redeemable only for stays and services at our managed properties</li>
+            <li>Delivered digitally by email</li>
+            <li>Not reloadable or transferable for cash</li>
+            <li>No expiration fees or inactivity fees</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <h3>In-Room Add-On Packages</h3>
+          <ul>
+            <li>Fixed-price packages</li>
+            <li>Welcome baskets, firewood bundles, candles</li>
+            <li>Local snack boxes and celebration packages</li>
+            <li>Delivered on-site at check-in or during stay</li>
+            <li>Available to add during booking or separately</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies -->
+  <section id="policies">
+    <div class="container">
+      <div class="section-label">Policies</div>
+      <h2 class="section-title">Our Policies</h2>
+      <p class="section-desc">Clear and fair policies for all customers.</p>
+      <div class="policies-grid">
+        <div class="policy-card">
+          <h3>Refund Policy</h3>
+          <p>Gift certificates may be refunded within 30 days of purchase if unused. In-room add-on packages may be cancelled for a full refund up to 48 hours before the scheduled check-in date. Refunds are issued to the original payment method.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Delivery & Fulfillment</h3>
+          <p>Digital gift certificates are delivered by email, typically within minutes of purchase. In-room packages and hospitality add-ons are delivered on-site to guests at check-in or during their stay at our managed properties.</p>
+        </div>
+        <div class="policy-card">
+          <h3>Customer Verification</h3>
+          <p>All orders go through standard online checkout with payment verification, fraud screening, reservation matching, and manual review when needed. We do not sell to resellers or third-party distributors.</p>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <h3>Important Disclosures</h3>
+        <p>Five Star Group LLC does not sell third-party gift cards, open-loop prepaid products, reloadable stored-value products, or payment services for other businesses. All gift certificates sold are first-party products, valid only for stays, services, and items at properties managed by Five Star Group LLC. Our products are sold directly to individual end customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-desc">Have questions about our gift certificates or hospitality packages? We're here to help.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Address</h3>
+          <p>Five Star Group LLC<br>4365 State Route 39<br>Millersburg, OH 44654</p>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:info@fivestargrp.com">info@fivestargrp.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Hours</h3>
+          <p>Monday &ndash; Friday<br>9:00 AM &ndash; 5:00 PM EST</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654</p>
+  </footer>
+
+</body>
+</html>
