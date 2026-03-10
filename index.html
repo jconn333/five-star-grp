@@ -500,6 +500,8 @@
     }
 
     footer span { color: var(--gold); }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--gold); text-decoration: underline; }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
@@ -538,7 +540,7 @@
   <!-- Header -->
   <header>
     <div class="header-inner">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span class="logo-text">Five Star Group LLC</span>
       </a>
@@ -559,8 +561,44 @@
     <p>Five Star Group LLC manages vacation rental properties in Ohio's Amish Country, delivering exceptional guest experiences with hands-on hospitality and a personal touch.</p>
   </section>
 
+  <!-- Hospitality & Property Management -->
+  <section id="hospitality" style="background: var(--white);">
+    <div class="container">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Hospitality &amp; Property Management</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Five Star Group is a hospitality management company that manages unique vacation rental properties including luxury treehouses and cabins. We provide full-service property management for owners and handle guest reservations, payment processing, and hospitality services for each property.</p>
+          <p>Guests may also purchase gift certificates and optional stay enhancement packages such as firewood bundles, local food baskets, and romance packages.</p>
+          <p><a href="booking-and-products.html" style="color: var(--gold); font-weight: 600; text-decoration: none;">Learn more about our booking &amp; products &rarr;</a></p>
+        </div>
+        <div>
+          <div class="about-details">
+            <h3>Our Services at a Glance</h3>
+            <div class="detail-row">
+              <span class="detail-label">Lodging</span>
+              <span class="detail-value">Vacation rental stays at managed properties</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Gift Certificates</span>
+              <span class="detail-value">Redeemable toward future stays</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Add-On Packages</span>
+              <span class="detail-value">Firewood, local foods, romance packages &amp; more</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Guest Support</span>
+              <span class="detail-value">Before, during, and after every stay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Property Gallery -->
-  <section style="background: var(--white);">
+  <section style="background: var(--white); padding-top: 0;">
     <div class="container">
       <div class="section-label">Our Properties</div>
       <h2 class="section-title">Properties We Manage</h2>
@@ -839,7 +877,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654</p>
+    <p>&copy; 2025 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654 &nbsp;|&nbsp; <a href="booking-and-products.html">Booking &amp; Products</a></p>
   </footer>
 
 </body>

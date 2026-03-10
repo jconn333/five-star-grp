@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking & Product Information — Five Star Group LLC</title>
+  <meta name="description" content="Learn about Five Star Group's hospitality management services, vacation rental bookings, gift certificates, and guest experience packages.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --gold: #c9a84c;
+      --gold-light: #f5edda;
+      --text: #2d2d2d;
+      --text-light: #5a5a5a;
+      --bg: #fafaf8;
+      --white: #ffffff;
+      --border: #e2ddd5;
+      --section-gap: 5rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .logo-stars {
+      color: var(--gold);
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+    }
+
+    .logo-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .nav-book-btn {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-book-btn:hover {
+      background: var(--white);
+      color: var(--navy) !important;
+    }
+
+    /* ── Page Hero ── */
+    .page-hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem 4.5rem;
+    }
+
+    .page-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .page-hero h1 span { color: var(--gold); }
+
+    .page-hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+    }
+
+    /* ── Sections ── */
+    section { padding: var(--section-gap) 2rem; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      color: var(--text-light);
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    /* ── Content Blocks ── */
+    .content-block {
+      margin-bottom: 3rem;
+    }
+
+    .content-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-block h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gold-light);
+    }
+
+    .content-block h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .content-block p {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .content-block ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .content-block li {
+      padding: 0.5rem 0;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .content-block li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Info Cards ── */
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card h3 {
+      margin-top: 0;
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Contact Card ── */
+    .support-card {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 2.5rem;
+      color: var(--white);
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .support-card h2 {
+      color: var(--white);
+      border-bottom-color: rgba(255,255,255,0.15);
+      margin-bottom: 1rem;
+    }
+
+    .support-card p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    .support-card a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .support-card a:hover {
+      text-decoration: underline;
+    }
+
+    .support-details {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .support-detail {
+      text-align: center;
+    }
+
+    .support-detail .label {
+      display: block;
+      color: var(--gold);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .support-detail .value {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+    }
+
+    .support-detail a {
+      font-size: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #111d33;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer span { color: var(--gold); }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .page-hero { padding: 3.5rem 1.5rem 3rem; }
+      .page-hero h1 { font-size: 1.75rem; }
+      .section-title { font-size: 1.5rem; }
+      .content-block h2 { font-size: 1.4rem; }
+      nav { display: none; }
+      section { padding: 3rem 1.25rem; }
+      .support-details { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="logo-text">Five Star Group LLC</span>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="https://book.amishcountrylodging.com/" class="nav-book-btn" target="_blank" rel="noopener">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <h1>Booking & <span>Product Information</span></h1>
+    <p>Everything you need to know about our hospitality management services, how reservations work, and the products we offer.</p>
+  </div>
+
+  <!-- Main Content -->
+  <section>
+    <div class="container">
+
+      <!-- About Five Star Group -->
+      <div class="content-block">
+        <h2>About Five Star Group</h2>
+        <p>Five Star Group is a hospitality management company that operates and manages unique vacation rental properties on behalf of property owners.</p>
+        <p>Our company manages guest reservations, payment processing, guest communication, and hospitality services for the properties we operate.</p>
+        <p>Guests may book accommodations and related products directly through the booking platforms and websites managed by Five Star Group.</p>
+      </div>
+
+      <!-- Products & Services We Sell -->
+      <div class="content-block">
+        <h2>Products &amp; Services We Sell</h2>
+        <p>Payments processed by Five Star Group are for hospitality-related services and products associated with the vacation rental properties we manage. These include:</p>
+
+        <div class="info-card">
+          <h3>Vacation Rental Stays</h3>
+          <p>Guests may reserve short-term lodging accommodations at the properties we manage. A reservation provides private access to the property for the reserved stay dates.</p>
+          <p>Guests receive reservation confirmation, check-in instructions, and property access information prior to their arrival.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Gift Certificates</h3>
+          <p>Five Star Group offers gift certificates that may be redeemed toward a future stay at participating properties that we manage.</p>
+          <p>Gift certificates can be purchased online and redeemed during the booking process.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Guest Experience Packages</h3>
+          <p>Guests may purchase optional add-on packages to enhance their stay. These packages are prepared locally and placed in the property prior to guest arrival.</p>
+          <p>Examples include:</p>
+          <ul>
+            <li>Firewood bundles for outdoor fire pits</li>
+            <li>Local meats and cheeses</li>
+            <li>Romance packages</li>
+            <li>Taste of Amish Country gift baskets featuring regional foods</li>
+          </ul>
+          <p>These items are delivered to the property and provided to guests during their stay.</p>
+        </div>
+      </div>
+
+      <!-- Our Role as Property Manager -->
+      <div class="content-block">
+        <h2>Our Role as Property Manager</h2>
+        <p>Five Star Group serves as the authorized booking and property management company for the vacation rental properties we operate.</p>
+        <p>Property owners contract with Five Star Group to handle:</p>
+        <ul>
+          <li>Guest reservations</li>
+          <li>Payment processing</li>
+          <li>Customer support</li>
+          <li>Property operations</li>
+          <li>Cleaning and maintenance coordination</li>
+          <li>Guest experience services</li>
+        </ul>
+        <p>All payments for reservations and add-on products are processed by Five Star Group as part of our hospitality management services.</p>
+      </div>
+
+      <!-- Reservation Fulfillment -->
+      <div class="content-block">
+        <h2>Reservation Fulfillment</h2>
+        <p>After a reservation is made, guests receive confirmation of their booking and instructions for accessing the property.</p>
+        <p>The lodging service is fulfilled at the physical property during the guest's reserved stay dates.</p>
+        <p>Guest packages and add-on products are delivered to the property prior to guest arrival.</p>
+      </div>
+
+      <!-- Customer Support -->
+      <div class="content-block support-card">
+        <h2>Customer Support</h2>
+        <p>Five Star Group provides guest support before, during, and after each stay.</p>
+        <div class="support-details">
+          <div class="support-detail">
+            <span class="label">Email</span>
+            <span class="value"><a href="mailto:info@fivestargrp.com">info@fivestargrp.com</a></span>
+          </div>
+          <div class="support-detail">
+            <span class="label">Address</span>
+            <span class="value">4365 State Route 39, Millersburg, OH 44654</span>
+          </div>
+          <div class="support-detail">
+            <span class="label">Hours</span>
+            <span class="value">Monday &ndash; Friday, 9 AM &ndash; 5 PM EST</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654 &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="booking-and-products.html">Booking &amp; Products</a></p>
+  </footer>
+
+</body>
+</html>
