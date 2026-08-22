@@ -5,44 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking & Product Information — Five Star Group LLC</title>
   <meta name="description" content="Learn about Five Star Group's hospitality management services, vacation rental bookings, gift certificates, and guest experience packages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a2744;
-      --gold: #c9a84c;
-      --gold-light: #f5edda;
-      --text: #2d2d2d;
-      --text-light: #5a5a5a;
-      --bg: #fafaf8;
-      --white: #ffffff;
-      --border: #e2ddd5;
-      --section-gap: 5rem;
+      --paper: #f5eede;
+      --paper-2: #fbf5e9;
+      --card: #fffdf7;
+      --ink: #2f2418;
+      --ink-soft: #6d5d49;
+      --forest: #26382b;
+      --forest-deep: #1a2a1f;
+      --harvest: #c08a3c;
+      --harvest-deep: #9a6a24;
+      --harvest-soft: #f0e2c4;
+      --rust: #a95333;
+      --border: #e6d9c0;
+      --border-soft: #efe6d3;
+      --shadow-sm: 0 2px 10px rgba(70,48,20,0.06);
+      --shadow: 20px 26px 60px -32px rgba(60,42,18,0.42);
+      --section-gap: 5.5rem;
+
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      position: relative;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(1100px 560px at 10% -8%, rgba(192,138,60,0.12), transparent 60%),
+        radial-gradient(900px 480px at 100% 6%, rgba(169,83,51,0.07), transparent 55%),
+        var(--paper);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.045;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    ::selection { background: var(--harvest-soft); color: var(--ink); }
 
     /* ── Header ── */
     header {
-      background: var(--navy);
-      color: var(--white);
-      padding: 1rem 0;
+      background: rgba(245,238,222,0.82);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      color: var(--ink);
+      padding: 0.9rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 2rem;
       display: flex;
@@ -54,135 +94,168 @@
 
     .logo {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      align-items: baseline;
+      gap: 0.6rem;
       text-decoration: none;
-      color: var(--white);
+      color: var(--ink);
     }
 
     .logo-stars {
-      color: var(--gold);
-      font-size: 1.25rem;
+      color: var(--harvest);
+      font-size: 0.82rem;
       letter-spacing: 2px;
     }
 
     .logo-text {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      line-height: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.9rem;
     }
 
     nav a {
-      color: rgba(255,255,255,0.85);
+      color: var(--ink-soft);
       text-decoration: none;
-      font-size: 0.9rem;
-      margin-left: 2rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
       transition: color 0.2s;
     }
 
-    nav a:hover { color: var(--gold); }
+    nav a:hover { color: var(--harvest-deep); }
 
     .nav-book-btn {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.5rem 1.25rem;
-      border-radius: 6px;
+      background: var(--forest);
+      color: #f7f0e2 !important;
+      padding: 0.5rem 1.15rem;
+      border-radius: 999px;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      transition: background 0.2s, color 0.2s;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, background 0.2s;
     }
     .nav-book-btn:hover {
-      background: var(--white);
-      color: var(--navy) !important;
+      background: var(--forest-deep);
+      transform: translateY(-1px);
     }
 
     /* ── Page Hero ── */
     .page-hero {
-      background: var(--navy);
-      color: var(--white);
+      position: relative;
+      isolation: isolate;
+      color: #fdf8ec;
       text-align: center;
-      padding: 5rem 2rem 4.5rem;
+      padding: 6rem 2rem 5.5rem;
+      overflow: hidden;
     }
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(26,42,31,0.7), rgba(43,32,20,0.74)),
+        url('https://www.amishcountrylodging.com/wp-content/uploads/2019/08/evergreen-cabin-exterior-overview.jpg') center/cover no-repeat;
+    }
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 110px;
+      z-index: -1;
+      background: linear-gradient(transparent, var(--paper));
+    }
+
+    .page-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #f0d9a6;
+      margin-bottom: 1.3rem;
+    }
+    .page-hero .eyebrow .stars { color: var(--harvest); letter-spacing: 2px; }
 
     .page-hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: -0.5px;
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.28);
     }
 
-    .page-hero h1 span { color: var(--gold); }
+    .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--harvest); }
 
     .page-hero p {
       max-width: 650px;
       margin: 0 auto;
       font-size: 1.1rem;
-      color: rgba(255,255,255,0.8);
+      color: rgba(253,248,236,0.9);
       line-height: 1.8;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.3);
     }
 
     /* ── Sections ── */
     section { padding: var(--section-gap) 2rem; }
 
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
-    }
-
-    .section-label {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.25rem;
-    }
-
-    .section-desc {
-      color: var(--text-light);
-      max-width: 650px;
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
     }
 
     /* ── Content Blocks ── */
     .content-block {
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
 
     .content-block:last-child {
       margin-bottom: 0;
     }
 
-    .content-block h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid var(--gold-light);
+    .content-block > h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .content-block > h2::before {
+      content: "\2726";
+      font-size: 0.9rem;
+      color: var(--harvest);
     }
 
     .content-block h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink);
       margin-top: 2rem;
       margin-bottom: 0.75rem;
     }
 
     .content-block p {
-      color: var(--text-light);
-      font-size: 1rem;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
       margin-bottom: 1rem;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .content-block ul {
@@ -193,29 +266,29 @@
 
     .content-block li {
       padding: 0.5rem 0;
-      color: var(--text-light);
-      font-size: 0.95rem;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.75rem;
     }
 
     .content-block li::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: var(--gold);
-      border-radius: 50%;
+      content: "\2726";
+      color: var(--harvest);
+      font-size: 0.7rem;
+      line-height: 1.9;
       flex-shrink: 0;
     }
 
     /* ── Info Cards ── */
     .info-card {
-      background: var(--white);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 2rem 2.25rem;
       margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .info-card h3 {
@@ -226,31 +299,49 @@
       margin-bottom: 0;
     }
 
-    /* ── Contact Card ── */
+    /* ── Support Card ── */
     .support-card {
-      background: var(--navy);
-      border-radius: 12px;
-      padding: 2.5rem;
-      color: var(--white);
+      position: relative;
+      isolation: isolate;
+      background: var(--forest);
+      border-radius: 16px;
+      padding: 2.75rem;
+      color: #fdf8ec;
       text-align: center;
       margin-top: 3rem;
+      overflow: hidden;
     }
+    .support-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .support-card h2::before { content: none; }
 
     .support-card h2 {
-      color: var(--white);
-      border-bottom-color: rgba(255,255,255,0.15);
-      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #fdf8ec;
+      border-bottom: 1px solid rgba(253,248,236,0.16);
+      padding-bottom: 0.9rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
     }
 
-    .support-card p {
-      color: rgba(255,255,255,0.8);
+    .support-card > p {
+      color: rgba(253,248,236,0.82);
       margin-bottom: 1.25rem;
     }
 
     .support-card a {
-      color: var(--gold);
+      color: var(--harvest);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.1rem;
     }
 
@@ -272,16 +363,16 @@
 
     .support-detail .label {
       display: block;
-      color: var(--gold);
-      font-size: 0.8rem;
+      color: var(--harvest);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 600;
+      letter-spacing: 0.16em;
+      font-weight: 800;
       margin-bottom: 0.5rem;
     }
 
     .support-detail .value {
-      color: rgba(255,255,255,0.9);
+      color: rgba(253,248,236,0.9);
       font-size: 1rem;
     }
 
@@ -291,33 +382,47 @@
 
     /* ── Footer ── */
     footer {
-      background: #111d33;
-      color: rgba(255,255,255,0.5);
+      background: var(--forest-deep);
+      color: rgba(253,248,236,0.55);
       text-align: center;
-      padding: 2rem;
+      padding: 2.4rem 2rem;
       font-size: 0.85rem;
     }
 
-    footer span { color: var(--gold); }
+    footer .foot-stars { color: var(--harvest); letter-spacing: 2px; font-size: 0.8rem; }
+    footer span { color: var(--harvest); font-family: var(--font-display); font-style: italic; }
 
     footer a {
-      color: rgba(255,255,255,0.5);
+      color: rgba(253,248,236,0.55);
       text-decoration: none;
     }
     footer a:hover {
-      color: var(--gold);
+      color: var(--harvest);
       text-decoration: underline;
     }
 
+    /* ── Reveal ── */
+    .content-block { animation: rise 0.7s ease both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
     /* ── Responsive ── */
+    @media (max-width: 860px) {
+      nav a:not(.nav-book-btn) { display: none; }
+      nav { gap: 0.8rem; }
+    }
+
     @media (max-width: 768px) {
-      .page-hero { padding: 3.5rem 1.5rem 3rem; }
-      .page-hero h1 { font-size: 1.75rem; }
-      .section-title { font-size: 1.5rem; }
-      .content-block h2 { font-size: 1.4rem; }
-      nav { display: none; }
-      section { padding: 3rem 1.25rem; }
+      .page-hero { padding: 4.5rem 1.5rem 4rem; }
+      section { padding: 3.5rem 1.25rem; }
       .support-details { gap: 1.5rem; }
+      .support-card { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -328,7 +433,7 @@
     <div class="header-inner">
       <a href="index.html" class="logo">
         <span class="logo-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span class="logo-text">Five Star Group LLC</span>
+        <span class="logo-text">Five Star Group</span>
       </a>
       <nav>
         <a href="index.html">Home</a>
@@ -342,7 +447,8 @@
 
   <!-- Page Hero -->
   <div class="page-hero">
-    <h1>Booking & <span>Product Information</span></h1>
+    <span class="eyebrow"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Five Star Group</span>
+    <h1>Booking &amp; <em>Product Information</em></h1>
     <p>Everything you need to know about our hospitality management services, how reservations work, and the products we offer.</p>
   </div>
 
@@ -438,7 +544,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654 &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="booking-and-products.html">Booking &amp; Products</a></p>
+    <p class="foot-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <p>&copy; 2026 <span>Five Star Group LLC</span>. All rights reserved. &nbsp;|&nbsp; 4365 State Route 39, Millersburg, OH 44654 &nbsp;|&nbsp; <a href="index.html">Home</a> &nbsp;|&nbsp; <a href="booking-and-products.html">Booking &amp; Products</a></p>
   </footer>
 
 </body>
